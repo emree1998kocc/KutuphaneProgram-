@@ -34,12 +34,28 @@ namespace KutuphaneProgramı.Controllers
                 {
                     Result = new
                     {
-                        Id= eklenenKtg.Id,
-                        Ad = eklenenKtg.Ad
+                        eklenenKtg.Id,
+                        eklenenKtg.Ad
                     }, JsonRequestBehavior.AllowGet
                 }
                 );
-
+        }
+        [HttpPost]
+        public JsonResult GuncelleJson(int ktgId, string ktgAd) 
+        {
+            var kategori = unitOfWork.GetRepository<Kategori>().GetById(ktgId);
+            kategori.Ad = ktgAd;
+            var durum = unitOfWork.SaveChanges();
+            if (durum > 0) return Json("1");
+            return Json("0");
+        }
+        [HttpPost]
+        public JsonResult SilJson(int ktgId)
+        {
+            unitOfWork.GetRepository<Kategori>().Delete(ktgId);
+            var durum = unitOfWork.SaveChanges();
+            if (durum > 0) return Json("1");
+            return Json("0");
         }
     }
 }
