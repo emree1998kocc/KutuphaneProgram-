@@ -19,5 +19,12 @@ namespace KutuphaneProgramı.Controllers
             var kitaplar = unitOfWork.GetRepository<Kitap>().GetAll();
             return View(kitaplar);
         }
+
+        public ActionResult Ekle()
+        {
+            ViewBag.Kategoriler = unitOfWork.GetRepository<Kategori>().GetAll();
+            ViewBag.Yazarlar = unitOfWork.GetRepository<Yazar>().GetAll();
+            return View();
+        }
     }
 }

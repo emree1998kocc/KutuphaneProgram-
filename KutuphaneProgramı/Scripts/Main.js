@@ -184,7 +184,6 @@ $(document).on("click", ".yazarsil", async function () {
     });
 });
 
-
 $(document).on("click", ".yazarGuncelle", async function () {
     var yzrId = $(this).val();
     var yzrAdId = $(this).parent("td").parent("tr").find("td:first");
@@ -225,4 +224,20 @@ $(document).on("click", ".yazarGuncelle", async function () {
             });
         }
     });
+});
+
+
+$(document).on("click", "#kategoriEkle", function () {
+    var secilenKategoriAd = $("#kategoriler").val();
+    var secilenId = $("#kategoriler option:selected").attr("data-id");
+    $("#eklenenKategoriler").append('<div id"' + secilenId + '" class="col-md-1 bg-primary kategoriSil" style="margin-right:2px; margin-bottom:2px;">' + secilenKategoriAd + '</div>');
+    $("#kategoriler option:selected").remove
+});
+
+
+$(document).on("click", ".kategoriSil", function () {
+    var id = $(this).attr("id");
+    var kategoriAd = $(this).html();
+    $("#kategoriler").append('<option data-id="' + id + '">' + kategoriAd + '</option>');
+    $(this).remove();
 });
