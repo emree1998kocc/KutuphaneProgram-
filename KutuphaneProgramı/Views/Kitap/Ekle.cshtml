@@ -26,7 +26,7 @@
     <div class="form-group">
         <label class="col-sm-12">Yazar Ekle</label>
         <div class="col-sm-12">
-            <select class="form-control">
+            <select id="yazar" class="form-control">
                 @foreach (var yazar in ViewBag.Yazarlar)
                 {
                     <option data-id="@yazar.Id">@yazar.Ad</option>
@@ -37,22 +37,25 @@
     <div class="form-group">
         <label class="col-md-12">Kitap Adı</label>
         <div class="col-md-12">
-            <input type="text" class="form-control" placeholder="Kitap Adını Giriniz">
+            <input id="kitapAd" type="text" class="form-control" placeholder="Kitap Adını Giriniz">
         </div>
     </div>
     <div class="form-group">
         <label class="col-md-12">Kitap Adeti</label>
         <div class="col-md-12">
-            <input type="text" class="form-control" placeholder="Kitap Adını Giriniz">
+            <input id="kitapAdet" type="text" class="form-control" placeholder="Kitap Adını Giriniz">
         </div>
     </div>
     <div class="form-group">
         <label class="col-md-12">Siro No</label>
         <div class="col-md-12">
-            <input type="text" class="form-control" placeholder="Sira Noyu Giriniz">
+            <input id="siraNo" type="text" class="form-control" placeholder="Sira Noyu Giriniz">
         </div>
     </div>
-    <div class="form-group">
+    <div> class="form-group">
+        <div class="col-md-12">
+            <input type="button" id="kitapKaydet" class="btn btn-block btn-info" value="Kaydet" />
+        <div>
     </div>
 </form>
 
